@@ -28,7 +28,7 @@ class MainTest(unittest.TestCase):
 				 ['t', 'h', 's', ' ', 's', ' ', 't', 's', 't'])
 
 	def test_water_temps_displayed(self):
-		"""Test that the dates and water temps are converted to floats and displayed"""
+		"""Test that the dates and water temps are converted to floats and returned"""
 		self.assertEqual(main.water_temps(self.waves), [('2015-08-01', 26.5), ('2015-08-02', 26.2)])
 
 	def test_conversion_formula(self):
@@ -40,8 +40,12 @@ class MainTest(unittest.TestCase):
 		self.assertEqual(main.convert_to_F(self.waves), [79.7, 79.16])
 
 	def test_wave_height_records(self):
-		"""Test that the date and the wave height is displayed"""
+		"""Test that the date and the wave height is returned"""
 		self.assertEqual(main.wave_height_records(self.waves), {'2015-08-01': 1.55, '2015-08-02': 1.97})
+
+	def test_average_wave_height(self):
+		"""Test that the average wave height for the month is returned"""
+		self.assertEqual(main.average_wave_height(self.waves), 1.76)
 
 	def test_homework_1_mean(self):
 		"""Test that the scores of the students for homework 1 are averaged"""

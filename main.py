@@ -34,13 +34,12 @@ def wave_height_records(data):
 	return formatted_data
 
 def average_wave_height(data):
-	"""Return the average wave height for each day"""
-	pass
+	"""Return the average wave height for the month"""
+	return mean([wave_height[1] for wave_height in data])
 
 def homework_1(data):
 	"""Return homework 1 grades of students"""
-	average = mean({grade['Homework 1'] for grade in data.values()})
-	return average
+	return mean({grade['Homework 1'] for grade in data.values()})
 
 data = {'Gale': {'Homework 1': 88, 'Homework 2': 76}, 
 		'Jordan': {'Homework 1': 92, 'Homework 2': 87}, 
@@ -81,3 +80,5 @@ data_set = [
 	[28, 1.7, 15.38, 7.34, 28.1, '2015-8-30'],
 	[29, 1.83, 7.14, 6.28, 27.8, '2015-08-31']
 ]
+
+print(average_wave_height(data_set))
