@@ -51,5 +51,40 @@ class MainTest(unittest.TestCase):
 		"""Test that the scores of the students for homework 1 are averaged"""
 		self.assertEqual(main.homework_1(self.students), 90)
 
+	def test_error_for_remove_vowels(self):
+		"""Test that a typer error occurs when a string is not passed"""
+		with self.assertRaises(TypeError):
+			main.remove_vowels(5)
+			main.remove_vowels(['hello', 'world'])
+			main.remove_vowels({'hi': 'whats up', 'num' : 90})
+
+	def test_error_for_water_temps(self):
+		"""Test that a type error occurs when an anyting but a list is passed in"""
+		with self.assertRaises(TypeError):
+			main.water_temps(5)
+			main.wave_temps('this is a test')
+			main.wave_temps({'name': 'test', 'age': 10})
+
+	def test_error_for_convert_to_F(self):
+		"""Test that a type error occurs when anything but a list is passed in"""
+		with self.assertRaises(TypeError):
+			main.convert_to_F(5)
+			main.convert_to_F('yayyyyyyy')
+			main.convert_to_F({'this': 'is', 'a': 'dictionary'})
+
+	def test_error_for_conversion_formula(self):
+		"""Test that a type error occurs if an int is not passed"""
+		with self.assertRaises(TypeError):
+			main.conversion_formula('25')
+			main.conversion_formula(['numbers', '12', '5', '2'])
+			main.conversion_formula({'you': 'get', 'the': 'jist'})
+
+	def test_error_for_homework(self):
+		"""Test that a type error occurs if dictionary is not passed"""
+		with self.assertRaises(AttributeError):
+			main.homework_1(5)
+			main.homework_1('last test')
+			main.homework_1(['hi', 'done', 'now'])
+
 if __name__ == '__main__':
 	unittest.main()
